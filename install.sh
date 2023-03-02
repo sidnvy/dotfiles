@@ -1,9 +1,5 @@
 #!/bin/sh
 
-if [ -z "$USER" ]; then
-    USER=$(id -un)
-fi
-
 echo "=========================================================="
 echo "* Install following packages:"
 echo "----------------------------------------------------------"
@@ -12,9 +8,15 @@ cd $HOME
 
 sudo apt update
 sudo apt-get install -y zsh
+zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-sudo chsh -s /usr/bin/zsh $USER
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
+sudo chsh -s /usr/bin/zsh
 
 # Install ripgrep
 sudo apt install -y ripgrep
@@ -27,7 +29,8 @@ sudo apt-get install -y $HOME/nvim.deb
 # Install nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
-mv $HOME/config/nvchad/custom $HOME/.config/nvim/lua
+mv /workspaces/.codespaces/.persistedshare/dotfiles/nvchad/custom $HOME/.config/nvim/lua
+mv /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf $HOME
 
 # Install tmux
 sudo apt-get install -y tmux
