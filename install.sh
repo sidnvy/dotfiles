@@ -6,9 +6,7 @@ echo "----------------------------------------------------------"
 
 cd $HOME
 
-export DEBIAN_FRONTEND=noninteractive
-
-sudo apt update -yq
+sudo DEBIAN_FRONTEND=noninteractive apt update -yq
 
 # Find all files in the runcoms directory that do not match README.md and create symbolic links to them in the home directory
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/*; do
@@ -21,19 +19,13 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 
 sudo chsh -s /usr/bin/zsh
 
-# Install ripgrep
-sudo apt install -y ripgrep
-
 # Install neovim
 NVIM_VERSION=0.8.0
 curl -L -o $HOME/nvim.deb https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.deb
-sudo apt-get install -y $HOME/nvim.deb
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq $HOME/nvim.deb ripgrep tmux
 
 # Install nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 mv /workspaces/.codespaces/.persistedshare/dotfiles/nvchad/custom $HOME/.config/nvim/lua
 mv /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf $HOME
-
-# Install tmux
-sudo apt-get install -y tmux
