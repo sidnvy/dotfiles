@@ -6,11 +6,9 @@ echo "----------------------------------------------------------"
 
 cd $HOME
 
-sudo apt update
-sudo apt-get install -y zsh
+export DEBIAN_FRONTEND=noninteractive
 
-# Enable extended globbing
-set -o extendedglob
+sudo apt update -yq
 
 # Find all files in the runcoms directory that do not match README.md and create symbolic links to them in the home directory
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/*; do
