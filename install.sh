@@ -29,7 +29,7 @@ curl -L -o $HOME/bin/nvim https://github.com/neovim/neovim/releases/download/v${
 chmod a+x $HOME/bin/nvim
 
 # Install nvchad
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 mv $HOME/config/nvchad/custom $HOME/.config/nvim/lua
 
