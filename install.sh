@@ -10,14 +10,11 @@ echo "----------------------------------------------------------"
 
 cd $HOME
 
+sudo apt update
 sudo apt-get install -y zsh
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 sudo chsh -s /usr/bin/zsh $USER
-
-# Install fzf
-FZF_VERSION=0.30.0
-curl -L https://github.com/junegunn/fzf/releases/download/${FZF_VERSION}/fzf-${FZF_VERSION}-linux_amd64.tar.gz | tar xzC $HOME/bin
 
 # Install ripgrep
 sudo apt install -y ripgrep
