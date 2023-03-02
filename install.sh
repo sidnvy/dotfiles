@@ -8,13 +8,18 @@ cd $HOME
 
 sudo apt update
 sudo apt-get install -y zsh
-zsh
-git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+# Enable extended globbing
+set -o extendedglob
+
+# Find all files in the runcoms directory that do not match README.md and create symbolic links to them in the home directory
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/*; do
+  if [ "$(basename "$rcfile")" != "README.md" ]; then
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.$(basename "$rcfile")"
+  fi
 done
+
+git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
 sudo chsh -s /usr/bin/zsh
 
