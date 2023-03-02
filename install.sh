@@ -24,8 +24,8 @@ sudo apt install -y ripgrep
 
 # Install neovim
 NVIM_VERSION=0.8.0
-curl -L -o nvim.deb https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.deb
-sudo apt-get install -y ./nvim.deb
+curl -L -o $HOME/nvim.deb https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.deb
+sudo apt-get install -y $HOME/nvim.deb
 
 # Install nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
