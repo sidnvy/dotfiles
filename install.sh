@@ -20,7 +20,7 @@ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$H
 sudo chsh -s /usr/bin/zsh
 
 # Install neovim
-NVIM_VERSION=0.8.0
+NVIM_VERSION=0.8.3
 curl -L -o $HOME/nvim.deb https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.deb
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq $HOME/nvim.deb ripgrep tmux
 
