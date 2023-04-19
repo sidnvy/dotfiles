@@ -29,3 +29,4 @@ git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
 mv /workspaces/.codespaces/.persistedshare/dotfiles/nvchad/custom $HOME/.config/nvim/lua
 mv /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf $HOME
+mv /workspaces/.codespaces/.persistedshare/dotfiles/.zpreztorc $HOME
