@@ -23,8 +23,7 @@ sudo chsh -s /usr/bin/zsh
 NVIM_VERSION=0.9.0
 curl -L -o $HOME/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.tar.gz
 tar xzvf nvim-linux64.tar.gz
-mv $HOME/nvim-linux64/bin/nvim /usr/bin
-sudo chmod +x /usr/bin/nvim
+sudo mv $HOME/nvim-linux64/bin/nvim /usr/bin && sudo chmod +x /usr/bin/nvim
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ripgrep tmux
 
 # Install nvchad
