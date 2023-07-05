@@ -3,7 +3,7 @@
 echo "=========================================================="
 echo "* Install following packages:"
 echo "----------------------------------------------------------"
-
+echo $PWD
 cd $HOME
 
 sudo DEBIAN_FRONTEND=noninteractive apt update -yq
@@ -28,6 +28,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ripgrep tmux
 # Install nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
-mv /workspaces/.codespaces/.persistedshare/dotfiles/nvchad/custom $HOME/.config/nvim/lua
-mv /workspaces/.codespaces/.persistedshare/dotfiles/.tmux.conf $HOME
-mv /workspaces/.codespaces/.persistedshare/dotfiles/.zpreztorc $HOME
+mv $PWD/nvchad/custom $HOME/.config/nvim/lua
+mv $PWD/.tmux.conf $HOME
+mv $PWD/.zpreztorc $HOME
