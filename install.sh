@@ -29,6 +29,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq ripgrep tmux
 # Install nvchad
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 
+# Install TPM
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 mv $cwd/nvchad/custom $HOME/.config/nvim/lua
 mv $cwd/.tmux.conf $HOME
 mv $cwd/.zpreztorc $HOME

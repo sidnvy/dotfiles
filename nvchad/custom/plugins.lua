@@ -6,7 +6,7 @@ local plugins = {
   -- Override plugin definition options
 
   {
-    'github/copilot.vim', lazy = true
+    'github/copilot.vim', lazy = false
   },
   {
     "neovim/nvim-lspconfig",
