@@ -7,6 +7,7 @@ M.treesitter = {
     "html",
     "css",
     "javascript",
+    "typescript",
     "c",
     "markdown",
     "markdown_inline",
@@ -37,6 +38,11 @@ M.mason = {
     "ruff",
     "ruff-lsp",
     "pyright",
+    "prettier",
+
+    -- c/cpp stuff
+    "clangd",
+    "clang-format",
   },
 }
 
