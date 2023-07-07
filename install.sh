@@ -18,7 +18,7 @@ done
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
-sudo chsh -s $(which zsh)
+sudo usermod -s $(which zsh) $USER
 
 # Install neovim
 NVIM_VERSION=0.9.0
