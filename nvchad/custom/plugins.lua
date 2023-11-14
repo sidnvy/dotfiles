@@ -6,7 +6,23 @@ local plugins = {
   -- Override plugin definition options
 
   {
-    'github/copilot.vim', lazy = false
+    "ggandor/leap.nvim",
+    lazy=false,
+    config = function()
+      require'leap'.set_default_keymaps()
+    end
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          auto_trigger = true
+        }
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -59,3 +75,4 @@ local plugins = {
 }
 
 return plugins
+
